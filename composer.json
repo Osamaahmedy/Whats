@@ -1,0 +1,7 @@
+{
+    "require": {
+        "twilio/sdk": "*",
+        "monolog/monolog": "2.0.*",
+        "pear/http_request2": "^2.3"
+    }
+}

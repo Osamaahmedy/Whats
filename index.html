@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Send WhatsApp Message</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Send WhatsApp Message</h2>
+    <input type="text" id="name" placeholder="اسم الشخص">
+    <input type="text" id="number" placeholder="رقم الهاتف">
+    <button id="sendBtn">إرسال الرسالة</button>
+
+    <div id="response"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('#sendBtn').click(function(){
+                var name = $('#name').val();
+                var number = $('#number').val();
+
+                $.ajax({
+                    url: 'send_message.php',
+                    method: 'POST',
+                    data: { name: name, number: number },
+                    success: function(response){
+                        $('#response').html(response);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
